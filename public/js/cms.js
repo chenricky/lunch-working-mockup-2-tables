@@ -1,7 +1,9 @@
+
 $(document).ready(function() {
+
   // Getting jQuery references to the post body, title, form, and author select
   var bodyInput = $("#body");
-  var titleInput = $("#title");
+  var titleInput = $("#title"); //title is user name in the lunchApp
   var cmsForm = $("#cms");
   var authorSelect = $("#author");
   // Adding an event listener for when the form is submitted

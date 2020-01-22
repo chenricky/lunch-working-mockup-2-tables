@@ -80,7 +80,8 @@ $(document).ready(function() {
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
     var newPostAuthor = $("<h5>");
-    newPostAuthor.text("Going to: " + post.Author.name);
+    newPostAuthor.text("Going to: " + post.Author.name + " on: " + post.Author.date);
+    
     newPostAuthor.css({
       float: "right",
       color: "blue",
@@ -92,7 +93,7 @@ $(document).ready(function() {
     var newPostBody = $("<p>");
     newPostTitle.text(post.title + " ");
     newPostBody.text(post.body);
-    newPostDate.text(formattedDate);
+    //newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);

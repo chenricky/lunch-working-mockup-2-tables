@@ -1,6 +1,7 @@
 $(document).ready(function() {
   // Getting references to the name input and author container, as well as the table body
   var nameInput = $("#author-name");
+  var dateInput = $("#author-date");
   var authorList = $("tbody");
   var authorContainer = $(".author-container");
   // Adding event listeners to the form to create a new object, and the button to delete
@@ -20,10 +21,12 @@ $(document).ready(function() {
     }
     // Calling the upsertAuthor function and passing in the value of the name input
     upsertAuthor({
-      name: nameInput
-        .val()
-        .trim()
+      name: nameInput.val().trim(),
+      date: dateInput.val().trim()
     });
+
+   
+
   }
 
   // A function for creating an author. Calls getAuthors upon completion
@@ -37,11 +40,13 @@ $(document).ready(function() {
     var newTr = $("<tr>");
     newTr.data("author", authorData);
     newTr.append("<td>" + authorData.name + "</td>");
+    newTr.append("<td>" + authorData.date + "</td>");
     if (authorData.Posts) {
       newTr.append("<td> " + authorData.Posts.length + "</td>");
     } else {
       newTr.append("<td>0</td>");
     }
+    
     newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Attendees</a></td>");
     //newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Lunch</a></td>");
@@ -57,6 +62,7 @@ $(document).ready(function() {
       }
       renderAuthorList(rowsToAdd);
       nameInput.val("");
+      dateInput.val("");
     });
   }
 
